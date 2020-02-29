@@ -27,22 +27,22 @@ object NoteRepository {
 
     fun addNote(context: Context, newNote: Note) {
         val db = NoteDatabase.getDatabase(context)
-        db.noteDao.insert(newNote)
+        db.NoteDao.insert(newNote)
     }
 
     fun getNoteById (context: Context, id: String):Note {
         val db = NoteDatabase.getDatabase(context)
-        return db.noteDao.findNoteById(id)
+        return db.NoteDao.findNoteById(id)
     }
 
     fun getNotesAll (context: Context):List<Note> {
         val db = NoteDatabase.getDatabase(context)
-        return db.noteDao.getNotesAll()
+        return db.NoteDao.getNotesAll()
     }
 
     fun clearDb (context: Context) {
         val db = NoteDatabase.getDatabase(context)
-        return db.noteDao.deleteAllLessonNote()
+        return db.NoteDao.deleteAllLessonNote()
     }
 
     fun uploadNote (token: String, note2Upload: Note, success: (note: Note)->Unit, error: (errorMessage: String)->Unit){
